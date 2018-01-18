@@ -15,18 +15,36 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('admin', function (){
-    return view('admin');
-});
+Route::get('pword',function (){
+    //$tomorrow = mktime(0,0,date("m"), date("d")+1, date("Y"));
 
-Route::get('superuser',function (){
+    return date("D");
+});
+Route::get('down',function (){
+
+    return view('welcome');
+});
+Route::get('today','LibraryDayController@getCurrentDay')->name('today');
+Route::group(['prefix','libday','as'=>'lib-day.'],function (){
+
+});
+//Route::resource('checkin','CheckinController');
+Route::group(['prefix'=>'checkin', 'as'=>'checkin.','middleware'=>['auth']],function (){
+    Route::get('index','CheckinController@index')->name('index');
+    Route::post('checkin','CheckinController@checkin')->name('checkin');
+    Route::post('checkout','CheckinController@checkout')->name('checkout');
+});
+Route::get('logout','Auth\LoginController@logout')->name('logout');
+
+Route::resource('admin','UserController');
+/*Route::get('superuser',function (){
     return view('supperuser.superuser');
-})->name('superuser');
+})->name('superuser');*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('superuser','UserController');
 
+Route::resource('notification','PostController');
 
-Route::resource('notification','NotificationController');
-
-Route::resource('hall', 'HallController');
+//Route::resource('room', 'RoomsController');

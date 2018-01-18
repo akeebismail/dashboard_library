@@ -26,7 +26,7 @@
         <div class="col-md-4 col-lg-4 col-sm-4">
             <div class="card">
                 <div class="card-block">
-                    <h2>17 :45 : 56 Left</h2>
+                    <div id="countdowntimer"><span id="future_date"></span></div>
                 </div>
 
             </div>
@@ -38,14 +38,14 @@
         <div class="col-md-offset-4 col-lg-offset-4 col-lg-6 col-md-6">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Hall A</h4>
+                    <h4 class="card-title">{{$room->name}}</h4>
                     <div class="text-right">
-                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> 120</h2>
+                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{$space->occuppied}}</h2>
                         <span class="text-muted">Seat Left</span>
                     </div>
-                    <span class="text-success">80%</span>
+                    <span class="text-success">10%</span>
                     <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -57,11 +57,19 @@
             <div class="card">
                 <div class="card-block card-actions">
                     <div class="pull-right">
-                        <button class="btn btn-success">Check In</button>
+                        <form action="{{route('checkin.checkin')}}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="id" value="1">
+                            <button class="btn btn-success">Check In</button>
+                        </form>
                     </div>
 
                     <div class="pull-left">
-                        <button class="btn btn-primary">Check Out</button>
+                        <form action="{{route('checkin.checkout')}}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="id" value="1">
+                            <button class="btn btn-primary">Check Out</button>
+                        </form>
                     </div>
                 </div>
             </div>

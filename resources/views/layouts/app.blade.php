@@ -11,12 +11,16 @@
     <title>{{ config('app.name', 'Library') }}</title>
 
     <!-- Styles -->
+    <script type="text/javascript" src="{{asset('plugins/jquery/jquery-3.2.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('count/src/js/jQuery.countdownTimer.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('count/src/css/jQuery.countdownTimer.css')}}" />
+
     <link href="{{asset('/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="{{asset('css/default-dark.css')}}" id="theme" rel="stylesheet">
 
-    @stack('stylesheet')
+    @yield('stylesheet')
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -47,15 +51,21 @@
 </div>
 
     <!-- Scripts -->
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js')}}"></script>
     <script src="{{asset('js/sidebarmenu.js')}}"></script>
 
     <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
-    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-    @stack('script')
+<script type="text/javascript">
+    $(function(){
+        $("#future_date").countdowntimer({
+            dateAndTime : "2018-01-18 23:00:00",
+            size : "lg"
+        });
+    });
+</script>
+
+    @yield('script')
 
 </body>
 </html>

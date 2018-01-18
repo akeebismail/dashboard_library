@@ -31,7 +31,7 @@
             <div class="card">
                 <div class="card-block">
                     <h4 class="card-title">Add Hall Admin</h4>
-                    <form class="m-t-40" novalidate method="post" action="{{route('hall.store')}}">
+                    <form class="m-t-40" novalidate method="post" action="{{route('admin.store')}}">
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="controls {{ $errors->has('first_name')? 'has-danger' : 'has-success' }}">

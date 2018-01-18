@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('stylesheet')
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{asset('count/src/js/jQuery.countdownTimer.js')}}"></script>
+
+    @endsection
 @section('head')
     @include('head')
     @endsection
@@ -14,7 +19,7 @@
         <div class="col-md-4 col-lg-4 col-sm-4">
             <div class="card">
                 <div class="card-block">
-                    <h2>17 :45 : 56 Left</h2>
+                    <div id="countdowntimer"><span id="future_date"></span></div>
                 </div>
 
             </div>
@@ -172,4 +177,14 @@
         </div>
         <!-- Column -->
     </div>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        $(function(){
+            $("#future_date").countdowntimer({
+                dateAndTime : "2018/01/19 23:54:00",
+                size : "lg"
+            });
+        });
+    </script>
 @endsection

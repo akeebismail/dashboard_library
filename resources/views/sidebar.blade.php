@@ -32,8 +32,8 @@
                 <li>
                     <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Hall Admin</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{route('hall.index')}}">List Hall Admin</a></li>
-                        <li><a href="{{route('hall.create')}}">Add Hall Admin</a></li>
+                        <li><a href="{{route('admin.index')}}">List Hall Admin</a></li>
+                        <li><a href="{{route('admin.create')}}">Add Hall Admin</a></li>
                         <li><a href="#"></a></li>
                     </ul>
                 </li>

@@ -19,7 +19,7 @@ class HallAdminRequest extends FormRequest{
         return  [
             'first_name'=>['required'],
             'last_name'=>['required'],
-            'username'=> ['required','unique:admin'],
+            'username'=> ['required','unique:users'],
             'password'=>['required'],
             'hall'=>['required']
         ];

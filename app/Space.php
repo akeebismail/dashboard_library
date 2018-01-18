@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Space extends Model
 {
-    //
-    protected $fillable =['room_id','occupied','status'];
-
+    //o
+    protected $fillable = ['rooms_id','ocuppied','status'];
     public function room(){
-        return $this->hasOne(Hall::class);
+        return $this->belongsTo(Rooms::class);
     }
-
 }

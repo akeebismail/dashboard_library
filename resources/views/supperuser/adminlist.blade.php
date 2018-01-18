@@ -30,7 +30,7 @@
         <div class="col-md-8  col-lg-8 col-sm-11">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">All Hall Admins</h4>
+                    <h4 class="card-title">All Room Admins</h4>
                     <h6 class="card-subtitle">Added <code>Super  Admin </code></h6>
                     <div class="table-responsive">
                         <table class="table color-table primary-table">
@@ -55,24 +55,6 @@
                                 </td>
                             </tr>
                             @endforeach
-                            <tr>
-                                <td>B</td>
-                                <td>Deshmukh</td>
-                                <td>Prohaska</td>
-                                <td>@Genelia</td>
-                                <td><button class=" btn btn-small btn-info ">Edit</button>
-                                    <button class="btn btn-small btn-danger">delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>C</td>
-                                <td>Roshan</td>
-                                <td>Rogahn</td>
-                                <td>@Hritik</td>
-                                <td><button class=" btn btn-small btn-info ">Edit</button>
-                                    <button class="btn btn-small btn-danger">delete</button>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
