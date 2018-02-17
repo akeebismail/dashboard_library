@@ -6,16 +6,16 @@
  * Time: 5:45 PM
  */
 
-namespace App\LibRepo;
+namespace App\LibraryRepo;
 
 use App\LibraryDays;
 class LibraryRepository{
 
-    private  $libDay ;
+    public  $libDay ;
 
-    public function __construct()
+    public function __construct($day = null)
     {
-        $this->libDay = new  LibraryDays;
+        $this->libDay = new  LibraryDays(['library_day'=>$day]);
     }
 
     public function getOpeningTime(){
@@ -46,6 +46,6 @@ class LibraryRepository{
     }
 
     public function setDayException(){
-        
+
     }
 }

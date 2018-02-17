@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('home');
 });
-
+Route::get('repo', function (){
+    $repo = new \App\LibraryRepo\LibraryRepository('Mon');
+    return $repo->libDay;
+});
 Route::get('pword',function (){
     //$tomorrow = mktime(0,0,date("m"), date("d")+1, date("Y"));
 
