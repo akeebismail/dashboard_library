@@ -181,6 +181,7 @@
 @section('script')
     <script type="text/javascript">
         $(function(){
+
             $("#future_date").countdowntimer({
                 dateAndTime : "2018/01/19 23:54:00",
                 size : "lg"
