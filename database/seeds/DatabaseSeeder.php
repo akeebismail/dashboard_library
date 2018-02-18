@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        $lib = new  \App\LibraryDays();
+        /*$lib = new  \App\LibraryDays();
         $lib->library_day = 'Mon';
-        $lib->opening_time = 8;
+        $lib->opening_time = '08';
         $lib->closing_time = 10;
         $lib->save();
 
@@ -52,8 +52,10 @@ class DatabaseSeeder extends Seeder
         $lib->library_day = 'Sun';
         $lib->opening_time = 2;
         $lib->closing_time = 10;
-        $lib->save();
+        $lib->save();*/
 
-        $this->call(RoomsSeeder::class);
+        //$this->call(RoomsSeeder::class);
+
+        $this->call(UserTableSeeder::class);
     }
 }

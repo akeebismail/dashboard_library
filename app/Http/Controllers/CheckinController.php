@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Rooms;
 use App\Space;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CheckinController extends Controller
@@ -15,11 +17,11 @@ class CheckinController extends Controller
 
     public function index(){
         $user = auth()->user();
-        $room = $user->roomAssigned[0];
+        $room = Rooms::find($user->room_id);
         //return $user->roomAssigned[0];
-        $space = Space::where('rooms_id','=',$room->id)->where('for_day','=','2018-01-15')->get();
-        ///return $space;
-        return view('admin',['room'=>$user->roomAssigned[0],'space'=>$space[0]]);
+        $space = Space::where('room_id','=',$room->id)->where('for_day','=',Carbon::today())->first();
+        //return $space;
+        return view('admin',['room'=> $room,'space'=>$space]);
     }
 
     public function show($id){
@@ -28,7 +30,8 @@ class CheckinController extends Controller
 
     public function checkout(Request $request){
         $space = Space::find($request->id);
-        $space->occuppied -= 1;
+        $space->for_day = Carbon::today();
+        $space->occupied -= 1;
         $space->update();
 
         return back();
@@ -37,7 +40,8 @@ class CheckinController extends Controller
     public function checkin(Request $request){
         //space id;
         $space = Space::find($request->id);
-        $space->occuppied += 1;
+        $space->for_day = Carbon::today();
+        $space->occupied += 1;
         $space->update();
         return back();
     }

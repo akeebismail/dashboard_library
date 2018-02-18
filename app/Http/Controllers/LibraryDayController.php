@@ -20,7 +20,7 @@ class LibraryDayController extends Controller
             $space = new Space;
             $space->rooms_id = $room->id;
             $space->for_day = $date;
-            $space->occupied =0;
+            $space->occupied =1;
             $space->status = 1;
             $space->save();
         }

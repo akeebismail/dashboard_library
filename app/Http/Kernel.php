@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\LibrarianAccess;
+use App\Http\Middleware\StartTimeRedirect;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -57,5 +59,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'lib_open' => StartTimeRedirect::class,
+        'librarian' => LibrarianAccess::class,
     ];
 }

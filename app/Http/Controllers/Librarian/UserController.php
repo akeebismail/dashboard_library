@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Librarian;
 
 use App\Http\Request\HallAdminRequest;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth','librarian']);
     }
 
     /**
@@ -57,13 +58,13 @@ class UserController extends Controller
         $user->first_name   =   $request->first_name;
         $user->last_name    =   $request->last_name;
         $user->username     =   $request->username;
-        $user->level        =   1;
+        $user->level        =   2;
         $user->status       =   1;
         $user->password     =   bcrypt($request->password);
         $user->room_id      =   $request->hall;
         $user->save();
         $request->session()->flash('success','Room Admin Added Successfully');
-        return redirect()->route('room.index');
+        return redirect()->route('admin.index');
     }
 
     /**

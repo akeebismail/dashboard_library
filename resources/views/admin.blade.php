@@ -40,12 +40,12 @@
                 <div class="card-block">
                     <h4 class="card-title">{{$room->name}}</h4>
                     <div class="text-right">
-                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{$space->occuppied}}</h2>
+                        <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{$space->occupied}}</h2>
                         <span class="text-muted">Seat Left</span>
                     </div>
-                    <span class="text-success">10%</span>
+                    <span class="text-success">{{($space->occupied / $room->number_of_seats) * 100}}%</span>
                     <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{($space->occupied / $room->number_of_seats) * 100}}%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="{{$room->number_of_seats}}"></div>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <div class="pull-right">
                         <form action="{{route('checkin.checkin')}}" method="post">
                             {{csrf_field()}}
-                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="id" value="{{$space->id}}">
                             <button class="btn btn-success">Check In</button>
                         </form>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="pull-left">
                         <form action="{{route('checkin.checkout')}}" method="post">
                             {{csrf_field()}}
-                            <input type="hidden" name="id" value="1">
+                            <input type="hidden" name="id" value="{{$space->id}}">
                             <button class="btn btn-primary">Check Out</button>
                         </form>
                     </div>

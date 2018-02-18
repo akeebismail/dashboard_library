@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 Route::get('repo', function (){
     $repo = new \App\LibraryRepo\LibraryRepository('Mon');
-    return $repo->libDay;
+    return $repo->setTomorrow();
+    //return $repo->isTodaySet()? 'ye': 'no';
 });
 Route::get('pword',function (){
     //$tomorrow = mktime(0,0,date("m"), date("d")+1, date("Y"));
@@ -27,6 +26,10 @@ Route::get('down',function (){
 
     return view('welcome');
 });
+
+Route::get('not-open',function (){
+    return 'Sorry library not open yet';
+})->name('not-open');
 Route::get('today','LibraryDayController@getCurrentDay')->name('today');
 Route::group(['prefix','libday','as'=>'lib-day.'],function (){
 
@@ -39,10 +42,9 @@ Route::group(['prefix'=>'checkin', 'as'=>'checkin.','middleware'=>['auth']],func
 });
 Route::get('logout','Auth\LoginController@logout')->name('logout');
 
-Route::resource('admin','UserController');
-/*Route::get('superuser',function (){
-    return view('supperuser.superuser');
-})->name('superuser');*/
+Route::resource('admin','Librarian\UserController');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -51,3 +53,5 @@ Route::resource('superuser','UserController');
 Route::resource('notification','PostController');
 
 //Route::resource('room', 'RoomsController');
+
+Route::get('library-closed','HomeController@closeLibrary')->name('lib-close');

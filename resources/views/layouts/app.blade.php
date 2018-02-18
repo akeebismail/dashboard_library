@@ -59,7 +59,7 @@
 <script type="text/javascript">
     $(function(){
         $("#future_date").countdowntimer({
-            dateAndTime : "2018-01-18 23:00:00",
+            dateAndTime : "{{$time}}",
             size : "lg"
         });
     });

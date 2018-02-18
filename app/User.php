@@ -27,13 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function isAdmin(){
-        return  $this->level ==1;
+        return  $this->level ==2;
     }
     public function isLibrarian(){
-        return $this->level == 2;
+        return $this->level == 1;
     }
+
     public function roomAssigned(){
-        return $this->hasMany(Rooms::class);
+        return $this->belongsTo(Rooms::class);
     }
 
     public function post(){
