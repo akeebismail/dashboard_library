@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-        <?php $x =0?>;
+        <?php $x =1?>;
         @foreach($space as $item)
             <!-- Column -->
             <div class="col-lg-4 col-md-6">
@@ -36,7 +36,7 @@
                     <div class="card-block">
                         <h4 class="card-title">{{$item->room->name}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{$item->occupied}}</h2>
+                            <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{ 500 -$item->occupied}}</h2>
                             <span class="text-muted">Seat Left</span>
                         </div>
                         <span class="text-success">{{($item->occupied / $item->room->number_of_seats)/ 100 }}%</span>
@@ -49,7 +49,7 @@
             @if($x % 4 == 0 )
                 <!-- end row and start a new column -->
             </div>
-
+            <div class="row">
             @endif
         <!-- Column -->
             <?php $x++; ?>
