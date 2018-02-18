@@ -16,8 +16,8 @@ class CreateLibraryDaysTable extends Migration
         Schema::create('library_days', function (Blueprint $table) {
             $table->increments('id');
             $table->string('library_day');
-            $table->timestamp('opening_time');
-            $table->timestamp('closing_time');
+            $table->time('opening_time');
+            $table->time('closing_time');
             $table->integer('status')->default(1);
             $table->timestamps();
         });

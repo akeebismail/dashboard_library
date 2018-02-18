@@ -11,51 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+         //$this->call(UsersTableSeeder::class);
 
-        /*$lib = new  \App\LibraryDays();
-        $lib->library_day = 'Mon';
-        $lib->opening_time = '08';
-        $lib->closing_time = 10;
-        $lib->save();
-
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Tue';
-        $lib->opening_time = 8;
-        $lib->closing_time = 10;
-        $lib->save();
-
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Wed';
-        $lib->opening_time = 8;
-        $lib->closing_time = 10;
-        $lib->save();
-
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Thu';
-        $lib->opening_time = 8;
-        $lib->closing_time = 10;
-        $lib->save();
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Fri';
-        $lib->opening_time = 8;
-        $lib->closing_time = 10;
-        $lib->save();
-
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Sat';
-        $lib->opening_time = 8;
-        $lib->closing_time = 4;
-        $lib->save();
-
-        $lib = new  \App\LibraryDays();
-        $lib->library_day = 'Sun';
-        $lib->opening_time = 2;
-        $lib->closing_time = 10;
-        $lib->save();*/
-
-        //$this->call(RoomsSeeder::class);
+        $this->call(RoomsSeeder::class);
 
         $this->call(UserTableSeeder::class);
+        $this->call(LibaryDaysSeeder::class);
     }
 }
