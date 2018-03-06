@@ -139,7 +139,7 @@ class LibraryRepository{
     }
 
     public function isClosed(){
-        return $this->getClosingTime() <= Carbon::now()? true : false;
+        return $this->getClosingTime() >= Carbon::now()? true : false;
     }
     public function setClosingTime(){
 

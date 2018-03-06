@@ -1,22 +1,22 @@
 
 <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="/">
             <!-- Logo icon -->
             <b>
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
-                <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                <img src="/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                 <!-- Light Logo icon -->
-                <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                <img src="/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
             </b>
             <!--End Logo icon -->
             <!-- Logo text -->
             <span>
                          <!-- dark Logo text -->
-                         <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                         <img src="/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                 <!-- Light Logo text -->
-                         <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
+                         <img src="/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
         </a>
     </div>
     <div class="navbar-collapse">
@@ -73,4 +73,12 @@
             </li>
         </ul>
     </div>
+    @if(auth()->check())
+            <a href="{{route('logout')}}" onclick="id =document.getElementById('logout'); id.preventDefault().submit()" class="btn btn-info">Logout</a>
+            <form id="logout" action="{{route('logout')}}" style="display: none;" method="post">
+                {{csrf_field()}}
+            </form>
+        @else
+        <a href="{{route('login')}}" class="btn btn-primary">Login</a>
+    @endif
 </nav>

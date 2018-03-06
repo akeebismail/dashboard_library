@@ -41,7 +41,7 @@
                     <h4 class="card-title">{{$room->name}}</h4>
                     <div class="text-right">
                         <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> {{$space->occupied}}</h2>
-                        <span class="text-muted">Seat Left</span>
+                        <span class="text-muted">Seat Occupied</span>
                     </div>
                     <span class="text-success">{{($space->occupied / $room->number_of_seats) * 100}}%</span>
                     <div class="progress">
@@ -72,6 +72,10 @@
                         </form>
                     </div>
                 </div>
+                <a href="{{route('logout')}}" onclick="id =document.getElementById('logout'); id.preventDefault().submit()" class="btn btn-info">Logout</a>
+                <form id="logout" action="{{route('logout')}}" style="display: none;" method="post">
+                    {{csrf_field()}}
+                </form>
             </div>
         </div>
     </div>

@@ -48,7 +48,7 @@ Route::resource('admin','Librarian\UserController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('superuser','UserController');
+Route::resource('/superuser','Librarian\UserController');
 
 Route::resource('notification','PostController');
 

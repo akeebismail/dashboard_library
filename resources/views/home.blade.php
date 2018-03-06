@@ -65,7 +65,7 @@
             $("#future_date").countdowntimer({
                 dateAndTime : "{{$time}}",
                 size : "lg",
-                expiryUrl : "{{route('lib-close')}}"
+               // expiryUrl : "{{route('lib-close')}}"
             });
         });
     </script>

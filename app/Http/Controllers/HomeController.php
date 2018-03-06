@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function __construct(LibraryRepository $lib)
     {
-        $this->middleware('lib_open');
+        //$this->middleware('lib_open');
         $this->library = $lib;
 
         $this->library->isTodaySet() ? : $this->library->startDay();
