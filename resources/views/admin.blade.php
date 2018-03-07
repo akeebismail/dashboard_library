@@ -57,19 +57,11 @@
             <div class="card">
                 <div class="card-block card-actions">
                     <div class="pull-right">
-                        <form action="{{route('checkin.checkin')}}" method="post">
-                            {{csrf_field()}}
-                            <input type="hidden" name="id" value="{{$space->id}}">
-                            <button class="btn btn-success">Check In</button>
-                        </form>
+                        <button id="checkIn" class="btn btn-success">Check In</button>
                     </div>
 
                     <div class="pull-left">
-                        <form action="{{route('checkin.checkout')}}" method="post">
-                            {{csrf_field()}}
-                            <input type="hidden" name="id" value="{{$space->id}}">
-                            <button class="btn btn-primary">Check Out</button>
-                        </form>
+                        <button id="checkOut" class="btn btn-primary">Check Out</button>
                     </div>
                 </div>
                 <a href="{{route('logout')}}" onclick="id =document.getElementById('logout'); id.preventDefault().submit()" class="btn btn-info">Logout</a>
@@ -80,3 +72,40 @@
         </div>
     </div>
     @endsection
+@section('script')
+    <script>
+        $(document).ready(function () {
+
+            var  spaceId = "{{$space->id}}";
+            $("#checkIn").click(function () {
+                console.log('checking In');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('checkin.checkin')}}",
+                    data: {id : spaceId, _token: "{{csrf_field()}}"},
+                    success: function (response) {
+                        console.log(response.data)
+                    },
+                    error: function (error) {
+                        console.log(error.data)
+                    }
+                })
+            });
+
+            $("#checkOut").click(function () {
+                console.log('checking out')
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('checkin.checkout')}}",
+                    data: {id: spaceId, _token: "{{csrf_field()}}"},
+                    success: function (response) {
+                        console.log(response.data)
+                    },
+                    error: function (error) {
+                        console.log(error.data)
+                    }
+                })
+            })
+        });
+    </script>
+@endsection

@@ -34,15 +34,17 @@ class CheckinController extends Controller
         $space->occupied -= 1;
         $space->update();
 
-        return back();
+        return response()->json($space);
     }
 
     public function checkin(Request $request){
         //space id;
-        $space = Space::find($request->id);
+        /*$space = Space::find($request->id);
         $space->for_day = Carbon::today();
         $space->occupied += 1;
-        $space->update();
-        return back();
+        $space->update();*/
+        //return back();
+        //return response()->json($space);
+        return ['something'];
     }
 }

@@ -18,9 +18,8 @@ Route::get('repo', function (){
     //return $repo->isTodaySet()? 'ye': 'no';
 });
 Route::get('pword',function (){
-    //$tomorrow = mktime(0,0,date("m"), date("d")+1, date("Y"));
 
-    return date("D");
+    return bcrypt('qwerty11');
 });
 Route::get('down',function (){
 
